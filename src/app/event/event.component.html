@@ -1,0 +1,11 @@
+<!--//to display the Event data-->
+<!--for separations of each events add class and select the class in css file-->
+<div class="event">
+<!--<div>email: {{Event.email}}</div>-->
+<div> EventDate: {{Event.EventDate | date}}</div>
+<div>EventTitle: {{Event.EventTitle}}</div>
+<div>EventDescription: {{Event.EventDescription}}</div>
+
+  <button (click)="onDeleteClick()">Delete</button>
+  <button (click)="onUpdateClick()">Update</button>
+</div>

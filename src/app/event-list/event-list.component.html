@@ -1,0 +1,18 @@
+
+<button (click)="onClick()">Create New Event</button>
+<input>
+<!--ngFor to render the event comp for every item in the list-->
+<div class="event-list" >
+
+  <div class="event-list">
+     <!--    rendering the event-->
+    <app-event
+      *ngFor="let eventData of List"
+      [Event]="eventData"
+    ></app-event>
+    <!--    set up event comp-->
+     <!--    eventData (this data passing to the)Event (event bucket)-->
+  </div>
+
+
+</div>
