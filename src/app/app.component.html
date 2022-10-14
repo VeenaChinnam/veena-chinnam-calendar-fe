@@ -1,22 +1,31 @@
 
-<!--{{users | json}}-->
 <app-login
-  *ngIf="isLoggedIn === false"
-  (onLogin)="onLogin($event)"
-></app-login>
+  *ngIf="isLoggedIn === false "
+  (onLogin)="onLogin($event)">
+</app-login>
+<app-new-user
+  *ngIf="!isLoggedIn && isCreateNew === true"
 
-<!--inside the div only shows up when the condition is met-->
+></app-new-user>
+<!--(onCreate)="onUserClick($event)"-->
+<!--<app-new-user-->
+<!--  *ngIf=" isCreateNew ===false"-->
+<!--&gt;</app-new-user>-->
 <div *ngIf="isLoggedIn === true ">
 
-<app-event-list
-   *ngIf = "selectedEvent === null"
-  ></app-event-list>
+   <app-event-list
+      *ngIf = "selectedEvent === null "
 
+   ></app-event-list>
 
-<!--  if i have a selected contact value then i want to render the event-i/p comp
- and i want to use that value as i/p -->
-<app-event-input
-  *ngIf= " selectedEvent  !== null"
-  [event]="selectedEvent"
-  ></app-event-input>
+   <app-event-input
+      *ngIf= " selectedEvent  !== null"
+      [event]="selectedEvent"
+   ></app-event-input>
 </div>
+
+
+
+
+
+

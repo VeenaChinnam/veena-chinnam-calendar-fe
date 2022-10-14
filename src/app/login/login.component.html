@@ -1,13 +1,15 @@
 
-
-
 <h3>Login</h3>
 <div>
+  <label>Email Address : </label>
    <input [(ngModel)]="email" placeholder="email" >
-   <label>Email Address</label>
+
 </div>
 <div>
+  <label>Password : </label>
    <input [(ngModel)]="password" placeholder="password">
-   <label>Password</label>
+
 </div>
 <button (click)="onClick()">Login</button>
+<button (click)="onCreateUser()">Create New User</button>
+

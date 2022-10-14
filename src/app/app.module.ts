@@ -7,6 +7,8 @@ import {FormsModule} from "@angular/forms";
 import { EventListComponent } from './event-list/event-list.component';
 import { EventComponent } from './event/event.component';
 import { EventInputComponent } from './event-input/event-input.component';
+import {HttpClientModule} from "@angular/common/http";
+import { NewUserComponent } from './new-user/new-user.component';
 
 
 
@@ -16,11 +18,13 @@ import { EventInputComponent } from './event-input/event-input.component';
     LoginComponent,
     EventListComponent,
     EventComponent,
-    EventInputComponent
+    EventInputComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
