@@ -1,0 +1,30 @@
+<h2>create new user</h2>
+<div>
+  <div>
+    <label >name : </label>
+    <input [(ngModel)]="Name" placeholder="name">
+  </div>
+  <div>
+    <label>email : </label>
+    <input [(ngModel)]="email" placeholder="email">
+  </div>
+  <div>
+    <label>password : </label>
+    <input [(ngModel)]="password" placeholder="password">
+  </div>
+  <div>
+    <label>confirmPassword : </label>
+    <input [(ngModel)]="confirmPassword" placeholder="confirmPassword">
+  </div>
+
+  <button (click)="createUser()">Submit</button>
+
+</div>
+<!--json pipe to show the information-->
+{{users | json}}
+
+
+
+
+<!--<button (click)="onClickSubmit()">Submit</button>-->
+<!--<button (click)="onRegisterClick()">Register</button>-->
