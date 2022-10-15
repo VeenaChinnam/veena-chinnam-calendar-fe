@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IEventForm} from "../interfaces/IEventForm";
 import {DataService} from "../data.service";
-import {Subscription} from "rxjs";
+import {first, Subscription} from "rxjs";
+import {HttpService} from "../http.service";
 
 @Component({
   selector: 'app-event-input',
@@ -10,11 +11,12 @@ import {Subscription} from "rxjs";
 })
 export class EventInputComponent implements OnInit {
 
-  @Input() event!: IEventForm;
 
+    @Input() event!: IEventForm;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private httpService:HttpService) {
   }
+
 
   ngOnInit(): void {
   }
@@ -31,7 +33,7 @@ export class EventInputComponent implements OnInit {
     //change the date string to object in the console log
     this.event.EventDate = new Date(this.event.EventDate);
 
-    this.dataService.onEventInputSubmit(this.event)
+    this.dataService.onEventInputSubmit(this.event);
   }
 
 }

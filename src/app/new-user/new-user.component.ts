@@ -4,6 +4,7 @@ import {INewUserForm} from "../interfaces/INewUserForm";
 import {DataService} from "../data.service";
 import {HttpService} from "../http.service";
 import {first} from "rxjs";
+import {IEventForm} from "../interfaces/IEventForm";
 
 @Component({
   selector: 'app-new-user',
@@ -12,51 +13,76 @@ import {first} from "rxjs";
 })
 export class NewUserComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<INewUserForm>;
-  users: any = null;
-  Name: string ="";
-  email: string ="";
-  password: string = "";
-  confirmPassword: string ="";
 
+
+
+  users: any = null;
+  userIdInput: string="";
+  Name: string = "";
+  email: string = "";
+  password: string = "";
+  confirmPassword: string = "";
 
 
   ngOnInit(): void {
   }
 
-  constructor(private httpService: HttpService , dataService:DataService) {
+  constructor(private httpService: HttpService) {
     this.getUsers();
 
   }
-  getUsers(){
+
+  getUsers() {
     this.httpService.getUsers().pipe(first()).subscribe({
-      next:(Name) =>{
+      next: (Name) => {
         console.log(Name)
-        this.users=this.Name;
+        this.users = this.Name;
       },
-      error:(err) => {
+      error: (err) => {
         console.error(err);
       }
     })
   }
 
-
-  createUser(){
-    const newUser ={id:new Date().getTime(),
-      Name:this.Name,
-      email:this.email,
-    password:this.password,
-    confirmPassword:this.confirmPassword}
+  createUser() {
+    const newUser = {
+      id: new Date().getTime(),
+      Name: this.Name,
+      email: this.email,
+      password: this.password,
+      confirmPassword: this.confirmPassword
+    }
     this.httpService.createUser(newUser).pipe(first()).subscribe({
-      next:(data) =>{
+      next: (data) => {
         console.log(data);
         this.getUsers();
       },
-      error:(err) => {
+      error: (err) => {
         console.error(err);
       }
     })
-
   }
+
+  deleteUser() {
+    const id = parseInt(this.userIdInput);
+    this.httpService.deleteUser(id).subscribe({
+      next:(data) =>{
+        console.log(data);
+      },
+      error: (err) =>{
+        console.error(err);
+      }
+
+  })
+  }
+
+
+
+
+}
+
+
+
   // onClickSubmit( ){
   //   console.log('createNew')
   //   this.onSubmit.emit();
@@ -66,4 +92,4 @@ export class NewUserComponent implements OnInit {
   // onRegisterClick(){
   //
   // }
-}
+

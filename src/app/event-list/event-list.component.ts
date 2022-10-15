@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
 import {IEventForm} from "../interfaces/IEventForm";
 import {DataService} from "../data.service";
+import {HttpService} from "../http.service";
+import {first} from "rxjs";
+import {EventListService} from "../event-list.service";
 
 @Component({
   selector: 'app-event-list',
@@ -9,15 +12,21 @@ import {DataService} from "../data.service";
 })
 export class EventListComponent  {
 
+  Event : null = null;
+  EventDate: Date = new Date();
+  EventTitle: string="";
+  EventDescription:string ="";
+
   //instead of data coming from the parent  through an i/p, data come to the service in the constructor
   List: IEventForm[];
 
   displayList!: IEventForm[];
   searchText: string = "";
 
+    // onDestroy = new Subject();
 
+  constructor(private dataService: DataService, private httpService:HttpService) {
 
-  constructor(private dataService: DataService) {
     this.List = this.dataService.eventList;
     this.displayList = [...this.List];
 
@@ -25,7 +34,32 @@ export class EventListComponent  {
       console.log(newList)
       this.List = newList;
       this.displayList = [...this.List];
+
     })
+  }
+  createNewEvent() {
+    const newEvent = {
+      EventDate: this.EventDate,
+      EventTitle: this.EventTitle,
+      EventDescription: this.EventDescription,
+
+    }
+    this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
+      next: (displayList) => {
+        //console.log(displayList)
+
+        this.displayList;
+      },
+      error: (err) => {
+        console.error(err);
+        this.createNewEvent();
+        this.displayList;
+      }
+    })
+  }
+
+  ngOnDestroy(){
+
   }
 
   // ngOnInit(): void {
@@ -46,6 +80,7 @@ export class EventListComponent  {
   onClick(){
     console.log('hello')
     this.dataService.createNewEvent();
+    this.httpService.createNewEvent(this.displayList)
   }
 
 

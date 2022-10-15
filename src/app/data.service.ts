@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {IEventForm} from "./interfaces/IEventForm";
 import {v4 as uuidv4} from "uuid";
-import {Subject} from "rxjs";
+import {first, Subject} from "rxjs";
 import {ILogin} from "./interfaces/ILogin";
 import {HttpService} from "./http.service";
 
@@ -35,7 +35,13 @@ export class DataService {
       $eventList = new Subject<IEventForm[]>();
 
 
-  constructor(httpService: HttpService) { }
+  constructor(private httpService: HttpService) {
+    // this.httpService.getEventList().pipe(first()).subscribe({
+    //   next: eventList => {
+    //     this.$eventList.next (this.eventList)
+    //   }
+    // })
+  }
 
   //to run update func
   //logic for setting the selectedEvent to an existingEvent
