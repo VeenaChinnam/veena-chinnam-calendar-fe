@@ -22,8 +22,7 @@ export class EventComponent implements OnInit {
 
 
   constructor(private dataService: DataService,private httpService: HttpService) {
-    this.createNewEvent();
-    this.getEvents();
+
 
   }
 
@@ -56,8 +55,8 @@ export class EventComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.createNewEvent();
-        this.Events;
+
+
       }
     })
   }
@@ -65,7 +64,7 @@ export class EventComponent implements OnInit {
   ngOnInit(): void {
     //to verify the data is there or not
     console.log(this.Event)
-    this.httpService.createNewEvent(this.Events)
+    //this.httpService.createNewEvent(this.Events)
   }
   onDeleteClick() {
     this.dataService.deleteEvent(this.Event.id);
@@ -77,7 +76,7 @@ export class EventComponent implements OnInit {
   onUpdateClick(){
     this.dataService.setSelectedEvent(this.Event.id);
     this.httpService.createNewEvent(this.Events);
-    this.createNewEvent();
+    // this.createNewEvent();
   }
 
 }

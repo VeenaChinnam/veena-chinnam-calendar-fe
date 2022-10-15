@@ -47,12 +47,12 @@ export class EventListComponent  {
     this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
       next: (Event) => {
         //console.log(displayList)
-        this.createNewEvent();
+         this.createNewEvent();
         this.Event;
       },
       error: (err) => {
         console.error(err);
-        this.createNewEvent();
+        // this.createNewEvent();
         this.Event;
       }
     })

@@ -14,8 +14,6 @@ import {IEventForm} from "../interfaces/IEventForm";
 export class NewUserComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<INewUserForm>;
 
-
-
   users: any = null;
   userIdInput: string="";
   Name: string = "";
