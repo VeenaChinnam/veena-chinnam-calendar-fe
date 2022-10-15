@@ -45,15 +45,15 @@ export class EventListComponent  {
 
     }
     this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
-      next: (displayList) => {
+      next: (Event) => {
         //console.log(displayList)
-
-        this.displayList;
+        this.createNewEvent();
+        this.Event;
       },
       error: (err) => {
         console.error(err);
         this.createNewEvent();
-        this.displayList;
+        this.Event;
       }
     })
   }
@@ -80,7 +80,7 @@ export class EventListComponent  {
   onClick(){
     console.log('hello')
     this.dataService.createNewEvent();
-    this.httpService.createNewEvent(this.displayList)
+    this.httpService.createNewEvent(this.Event)
   }
 
 

@@ -15,6 +15,11 @@ export class DataService {
   private selectedEvent: IEventForm | null = null;
   $selectedEvent = new Subject<IEventForm | null>();
 
+  // createdNewEvent: IEventForm[]=[
+  //   {
+  //
+  //   }
+  // ]
 
   eventList: IEventForm[] = [
 
@@ -35,7 +40,9 @@ export class DataService {
       $eventList = new Subject<IEventForm[]>();
 
 
+
   constructor(private httpService: HttpService) {
+    this.createNewEvent();
     // this.httpService.getEventList().pipe(first()).subscribe({
     //   next: eventList => {
     //     this.$eventList.next (this.eventList)
@@ -54,15 +61,17 @@ export class DataService {
       return;
     }
     this.selectedEvent = {...event};
-    this.$selectedEvent.next(this.selectedEvent)
+    this.$selectedEvent.next(this.selectedEvent);
+
     //we will have values in the event form
     //instead of setting the reference we created the copy of object,
     // passing by value instead of reference
   }
 
-  cancelSelectedContact(){
+  cancelSelectedEvent (){
     this.selectedEvent= null;
     this.$selectedEvent.next(this.selectedEvent);
+
   }
 
 
@@ -76,7 +85,8 @@ export class DataService {
     }
     //set the value
     //next-updates the data inside of the subject
-    this.$selectedEvent.next(this.selectedEvent)
+    this.$selectedEvent.next(this.selectedEvent);
+
   }
 
   deleteEvent(id: string){
@@ -93,6 +103,7 @@ export class DataService {
     }
     this.selectedEvent = null;
     this.$selectedEvent.next(this.selectedEvent);
+
 
   }
   addEvent(eventinfo: IEventForm){

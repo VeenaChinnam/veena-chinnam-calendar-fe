@@ -9,6 +9,7 @@ import { EventComponent } from './event/event.component';
 import { EventInputComponent } from './event-input/event-input.component';
 import {HttpClientModule} from "@angular/common/http";
 import { NewUserComponent } from './new-user/new-user.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -24,7 +25,8 @@ import { NewUserComponent } from './new-user/new-user.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

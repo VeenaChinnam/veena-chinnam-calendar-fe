@@ -11,12 +11,39 @@ import {HttpService} from "../http.service";
 })
 export class EventInputComponent implements OnInit {
 
+  Event : any = null;
+  EventDate: Date = new Date();
+  EventTitle: string="";
+  EventDescription:string ="";
+
 
     @Input() event!: IEventForm;
 
   constructor(private dataService: DataService, private httpService:HttpService) {
+    this.createNewEvent();
   }
 
+
+  createNewEvent() {
+    const newEvent = {
+      EventDate: this.EventDate,
+      EventTitle: this.EventTitle,
+      EventDescription: this.EventDescription,
+
+    }
+    this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
+      next: (Event) => {
+        //console.log(displayList)
+
+        this.Event;
+      },
+      error: (err) => {
+        console.error(err);
+        this.createNewEvent();
+        this.Event;
+      }
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -26,14 +53,15 @@ export class EventInputComponent implements OnInit {
 
   onCancelClick(){
     console.log('cancel')
-    this.dataService.cancelSelectedContact();
+    this.dataService.cancelSelectedEvent();
   }
   onSubmitClick() {
     console.log(this.event)
     //change the date string to object in the console log
-    this.event.EventDate = new Date(this.event.EventDate);
+    this.EventDate = new Date(this.EventDate);
 
     this.dataService.onEventInputSubmit(this.event);
+    this.createNewEvent();
   }
 
 }

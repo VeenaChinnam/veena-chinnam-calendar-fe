@@ -46,7 +46,7 @@ export class NewUserComponent implements OnInit {
 
   createUser() {
     const newUser = {
-      id: new Date().getTime(),
+      id: new Date(),
       Name: this.Name,
       email: this.email,
       password: this.password,

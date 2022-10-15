@@ -12,14 +12,22 @@ import {first} from "rxjs";
 export class EventComponent implements OnInit {
 
   Events !:IEventForm;
+  // Events : null = null;
+  EventDate: Date = new Date();
+  EventTitle: string="";
+  EventDescription:string ="";
 
   @Input() Event!:IEventForm;
   //pass the data into the comp
 
 
   constructor(private dataService: DataService,private httpService: HttpService) {
+    this.createNewEvent();
+    this.getEvents();
 
+  }
 
+  getEvents(){
     this.httpService.getEvents().subscribe({
       next: (Event) => {
         console.log(Event)
@@ -31,10 +39,28 @@ export class EventComponent implements OnInit {
       }
     })
     console.log(this.Events)
-
   }
 
+  createNewEvent() {
+    const newEvent = {
+      EventDate: this.EventDate,
+      EventTitle: this.EventTitle,
+      EventDescription: this.EventDescription,
 
+    }
+    this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
+      next: (Event) => {
+        //console.log(displayList)
+        this.getEvents();
+        this.Events;
+      },
+      error: (err) => {
+        console.error(err);
+        this.createNewEvent();
+        this.Events;
+      }
+    })
+  }
 
   ngOnInit(): void {
     //to verify the data is there or not
@@ -50,7 +76,8 @@ export class EventComponent implements OnInit {
 
   onUpdateClick(){
     this.dataService.setSelectedEvent(this.Event.id);
-    this.httpService.createNewEvent(this.Events)
+    this.httpService.createNewEvent(this.Events);
+    this.createNewEvent();
   }
 
 }

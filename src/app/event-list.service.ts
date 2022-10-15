@@ -41,6 +41,7 @@ export class EventListService {
     this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
       next:(data) =>{
         console.log(data)
+        this.getEvents();
         this.createNewEvent();
     },
       error: (err) =>{
