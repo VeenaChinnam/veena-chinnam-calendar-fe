@@ -1,31 +1,63 @@
-<h2>create new user</h2>
-<div>
-  <div>
-    <label >name : </label>
-    <input [(ngModel)]="Name" placeholder="name">
-  </div>
-  <div>
-    <label>email : </label>
-    <input [(ngModel)]="email" placeholder="email">
-  </div>
-  <div>
-    <label>password : </label>
-    <input [(ngModel)]="password" placeholder="password">
-  </div>
-  <div>
-    <label>confirmPassword : </label>
-    <input [(ngModel)]="confirmPassword" placeholder="confirmPassword">
+
+<div class="d-flex justify-content-center mt-7">
+
+
+  <div class="border border-info , col-7">
+
+    <h2>create new user</h2>
+    <form class="row g-10">
+
+
+
+      <div class="col-4">
+        <label for="inputName" class="form-label">name : </label>
+        <input name="name" ngModel type="text"  class="form-control" id="inputName"  placeholder="name">
+      </div>
+
+
+      <div class="col-md-4">
+        <label for="inputEmail4" class="form-label">Email : </label>
+        <input name="email" ngModel type="email" class="form-control" id="inputEmail4"  placeholder="email">
+      </div>
+
+
+
+      <div>
+        <div class="col-md-4">
+          <label for="inputPassword4" class="form-label">Password : </label>
+          <input name="password" ngModel type="password" class="form-control" id="inputPassword4"  placeholder="password">
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+        <label for="inputPassword4" class="form-label">confirmPassword : </label>
+        <input name="confirmPassword" ngModel type="password" class="form-control" id="inputconfirmPassword4"  placeholder="confirmPassword">
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" (click)="createUser()">Submit</button>
+      </div>
+    </form>
+
   </div>
 
-  <button (click)="createUser()">Submit</button>
+
 
 </div>
+
+
+
+
 <!--json pipe to show the information-->
 {{users | json}}
 
+<div>
+  <input [(ngModel)]="userIdInput" type="number">
+  <button (click)="deleteUser()">delete</button>
 
-<input [(ngModel)]="userIdInput" type="number">
-<button (click)="deleteUser()">delete</button>
+</div>
 
 <!--<button (click)="onClickSubmit()">Submit</button>-->
 <!--<button (click)="onRegisterClick()">Register</button>-->
