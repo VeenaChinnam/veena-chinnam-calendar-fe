@@ -17,8 +17,8 @@ export class DataService {
   $selectedEvent = new Subject<IEventForm | null>();
 
   // private selectedUser: INewUserForm | null = null;
-  private selectedUser: INewUserForm | null = null;
-  $selectedUser = new Subject<INewUserForm | null>();
+  // private selectedUser: INewUserForm | null = null;
+  // $selectedUser = new Subject<INewUserForm | null>();
 
 
   eventList: IEventForm[] = [
@@ -95,7 +95,7 @@ export class DataService {
 
 
   createNewEvent(){
-    //this.isCreating = true;
+    // this.isCreating = true;
     this.selectedEvent ={
       id: "",
       EventDate: new Date(),
@@ -107,17 +107,17 @@ export class DataService {
     this.$selectedEvent.next(this.selectedEvent);
 
   }
-  createNewUser(){
-    console.log('newuser')
-    this.selectedUser ={
-      id:"",
-      Name:"",
-      email:"",
-      password:"",
-      confirmPassword:"",
-    }
-    this.$selectedUser.next(this.selectedUser);
-  }
+  // createNewUser(){
+  //   console.log('newuser')
+  //   this.selectedUser ={
+  //     id:"",
+  //     Name:"",
+  //     email:"",
+  //     password:"",
+  //     confirmPassword:"",
+  //   }
+  //   this.$selectedUser.next(this.selectedUser);
+  // }
 
   deleteEvent(id: string){
     console.log(id);

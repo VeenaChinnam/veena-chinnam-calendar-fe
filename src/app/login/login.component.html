@@ -1,15 +1,20 @@
 
-<h3>Login</h3>
-<div>
-  <label>Email Address : </label>
-   <input [(ngModel)]="email" placeholder="email" >
+<div class="d-flex justify-content-center mt-7">
 
+  <div class=" col-7">
+    <h3>Login</h3>
+    <div>
+      <label>Email Address : </label>
+      <input [(ngModel)]="email" placeholder="email" >
+
+    </div>
+    <div>
+      <label>Password : </label>
+      <input [(ngModel)]="password" placeholder="password">
+
+    </div>
+    <button type="button" class="btn btn-outline-primary" (click)="onClick()">Login</button>
+    <button type="button" class="btn btn-outline-primary" (click)="onCreateUser()">Create New User</button>
+
+  </div>
 </div>
-<div>
-  <label>Password : </label>
-   <input [(ngModel)]="password" placeholder="password">
-
-</div>
-<button type="button" class="btn btn-primary" (click)="onClick()">Login</button>
-<button type="button" class="btn btn-primary" (click)="onCreateUser()">Create New User</button>
-

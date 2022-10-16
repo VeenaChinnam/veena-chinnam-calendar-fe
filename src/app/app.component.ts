@@ -45,19 +45,19 @@ export class AppComponent {
     )
     //grab the value from the dataService and stores locally
 
-    this.dataService.$selectedUser.subscribe(
-      (selectedUser) => {
-        this.selectedUser = selectedUser;
-
-      }
-    )
+    // this.dataService.$selectedUser.subscribe(
+    //   (selectedUser) => {
+    //     this.selectedUser = selectedUser;
+    //
+    //   }
+    // )
 
   }
 
   //reaction to event
   onLogin(logincreds:ILogin){
     console.log('login!')
-    console.log('logincreds')
+    console.log(logincreds)
     const foundAccount=this.accountList.find((account)=>{
       return account.email === logincreds.email &&
         account.password === logincreds.password

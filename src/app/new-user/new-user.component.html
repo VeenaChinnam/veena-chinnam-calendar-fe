@@ -3,11 +3,8 @@
 
 
   <div class="border border-info , col-7">
-    <form class="row g-10" class="text-center">
+    <form  class="row g-10" class="text-center">
       <h2>create new user</h2>
-
-
-
 
       <div class="col-4">
         <label for="inputName" class="form-label">name : </label>
@@ -37,29 +34,27 @@
       </div>
 
       <div class="col-12">
-        <button type="button" class="btn btn-primary" (click)="onCreateUser()">Create New User</button>
+        <!--        <button type="button" class="btn btn-primary" (click)="onCreateUser()">Create New User</button>-->
 
         <button type="submit" class="btn btn-primary" (click)="createUser()">Submit</button>
+
       </div>
+
     </form>
 
-  </div>
-
+   </div>
 
 
 </div>
-
-
-
 
 <!--json pipe to show the information-->
 {{users | json}}
 
-<div>
+<div >
   <input [(ngModel)]="userIdInput" type="number">
-  <button (click)="deleteUser()">delete</button>
+  <button type="button" class="btn btn-outline-danger" (click)="deleteUser()">delete</button>
 
 </div>
 
-<button (click)="onClickSubmit()">Submit</button>
+<!--<button (click)="onClickSubmit()">Submit</button>-->
 <!--<button (click)="onRegisterClick()">Register</button>-->

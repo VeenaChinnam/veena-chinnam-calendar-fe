@@ -20,7 +20,7 @@ export class EventInputComponent implements OnInit {
     @Input() event!: IEventForm;
 
   constructor(private dataService: DataService, private httpService:HttpService) {
-    // this.createNewEvent();
+    this.createNewEvent();
   }
 
 
@@ -33,12 +33,6 @@ export class EventInputComponent implements OnInit {
     }
     this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
       next: (Event) => {
-        //console.log(displayList)
-        this.createNewEvent();
-        // this.Event;
-      },
-      error: (err) => {
-        console.error(err);
         // this.createNewEvent();
         // this.Event;
       }

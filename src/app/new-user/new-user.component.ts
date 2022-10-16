@@ -12,11 +12,8 @@ import {IEventForm} from "../interfaces/IEventForm";
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
-
-
-
-  @Output() onSubmit = new EventEmitter<INewUserForm>;
-  @Output() onCreate = new EventEmitter<INewUserForm>();
+  // @Output() onSubmit = new EventEmitter<INewUserForm>;
+  // @Output() onCreate = new EventEmitter<INewUserForm>();
 
   @Input() user!: INewUserForm;
 
@@ -59,7 +56,7 @@ export class NewUserComponent implements OnInit {
     this.httpService.createUser(newUser).pipe(first()).subscribe({
       next: (data) => {
         console.log(data);
-        this.getUsers();
+        // this.getUsers();
       },
       error: (err) => {
         console.error(err);
@@ -72,6 +69,7 @@ export class NewUserComponent implements OnInit {
     this.httpService.deleteUser(id).subscribe({
       next:(data) =>{
         console.log(data);
+        this.getUsers();
       },
       error: (err) =>{
         console.error(err);
@@ -79,18 +77,18 @@ export class NewUserComponent implements OnInit {
 
   })
   }
-  onCreateUser(){
-    console.log('clicked')
-    this.onCreate.emit();
+  // onCreateUser(){
+  //   console.log('clicked')
+  //   this.onCreate.emit();
+  //
+  // }
 
-  }
-
-  onClickSubmit( ){
-    console.log('submit');
-  // this.user
-    this.onSubmit.emit();
-
-  }
+  // onClickSubmit( ){
+  //   console.log('submit');
+  // // this.user
+  //   this.onSubmit.emit();
+  //
+  // }
 }
 
 

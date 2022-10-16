@@ -12,7 +12,7 @@ import {EventListService} from "../event-list.service";
 })
 export class EventListComponent  {
 
-  // Event: any;
+  Event: any;
   // displayEvent!: IEventForm[];
 
   //instead of data coming from the parent  through an i/p, data come to the service in the constructor
@@ -73,7 +73,7 @@ export class EventListComponent  {
   onClick(){
     console.log('hello')
     this.dataService.createNewEvent();
-    // this.httpService.createNewEvent(this.Event)
+    this.httpService.createNewEvent(this.Event)
   }
 
 

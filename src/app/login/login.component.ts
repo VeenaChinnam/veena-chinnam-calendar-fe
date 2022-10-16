@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   @Output() onLogin = new EventEmitter<ILogin>();
   // @Output() onCreate = new EventEmitter<INewUserForm>();
-  @Input() user!: INewUserForm;
+  // @Input() user!: INewUserForm;
 
 
   // userNewList :INewUserForm[];
@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit {
 
   onCreateUser(){
     console.log('clicked')
-   this.dataService.createNewUser();
+    // this.onCreate.emit();
+   // this.dataService.createNewUser();
   }
 
 }
