@@ -11,7 +11,7 @@ import {HttpService} from "../http.service";
 })
 export class EventInputComponent implements OnInit {
 
-  Event : any = null;
+  Event  = "";
   EventDate: Date = new Date();
   EventTitle: string="";
   EventDescription:string ="";
@@ -26,21 +26,21 @@ export class EventInputComponent implements OnInit {
 
   createNewEvent() {
     const newEvent = {
-      EventDate: this.EventDate,
-      EventTitle: this.EventTitle,
-      EventDescription: this.EventDescription,
+      EventDate: "",
+      EventTitle: "",
+      EventDescription: "",
 
     }
     this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
       next: (Event) => {
         //console.log(displayList)
         this.createNewEvent();
-        this.Event;
+        // this.Event;
       },
       error: (err) => {
         console.error(err);
-        this.createNewEvent();
-        this.Event;
+        // this.createNewEvent();
+        // this.Event;
       }
     })
   }
@@ -61,6 +61,7 @@ export class EventInputComponent implements OnInit {
     this.EventDate = new Date(this.EventDate);
 
     this.dataService.onEventInputSubmit(this.event);
+    // this.httpService.createNewEvent(this.Event)
 
   }
 

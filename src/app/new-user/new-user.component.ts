@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ILogin} from "../interfaces/ILogin";
 import {INewUserForm} from "../interfaces/INewUserForm";
 import {DataService} from "../data.service";
-import {HttpService} from "../http.service";
 import {first} from "rxjs";
+import {HttpService} from "../http.service";
 import {IEventForm} from "../interfaces/IEventForm";
 
 @Component({
@@ -12,7 +12,13 @@ import {IEventForm} from "../interfaces/IEventForm";
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
+
+
+
   @Output() onSubmit = new EventEmitter<INewUserForm>;
+  @Output() onCreate = new EventEmitter<INewUserForm>();
+
+  @Input() user!: INewUserForm;
 
   users: any = null;
   userIdInput: string="";
@@ -25,7 +31,7 @@ export class NewUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private dataService:DataService) {
     this.getUsers();
 
   }
@@ -73,20 +79,21 @@ export class NewUserComponent implements OnInit {
 
   })
   }
+  onCreateUser(){
+    console.log('clicked')
+    this.onCreate.emit();
 
+  }
 
+  onClickSubmit( ){
+    console.log('submit');
+  // this.user
+    this.onSubmit.emit();
 
-
+  }
 }
 
 
-
-  // onClickSubmit( ){
-  //   console.log('createNew')
-  //   this.onSubmit.emit();
-  //  ;
-
-  // }
   // onRegisterClick(){
   //
   // }

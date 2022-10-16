@@ -12,14 +12,11 @@ import {EventListService} from "../event-list.service";
 })
 export class EventListComponent  {
 
-  Event : null = null;
-  EventDate: Date = new Date();
-  EventTitle: string="";
-  EventDescription:string ="";
+  // Event: any;
+  // displayEvent!: IEventForm[];
 
   //instead of data coming from the parent  through an i/p, data come to the service in the constructor
   List: IEventForm[];
-
   displayList!: IEventForm[];
   searchText: string = "";
 
@@ -30,34 +27,30 @@ export class EventListComponent  {
     this.List = this.dataService.eventList;
     this.displayList = [...this.List];
 
+    // this.Event = this.dataService.createNewEvent;
+    // this.displayEvent = [...this.Event];
+
     this.dataService.$eventList.subscribe((newList) => {
       console.log(newList)
       this.List = newList;
       this.displayList = [...this.List];
 
     })
-  }
-  createNewEvent() {
-    const newEvent = {
-      EventDate: this.EventDate,
-      EventTitle: this.EventTitle,
-      EventDescription: this.EventDescription,
+    // this.httpService.createNewEvent.pipe(first()).subscribe({
+    //   next: (newEvent) => {
+    //     //console.log(displayList)
+    //     this.Event = newEvent;
+    //     this.displayEvent;
+    //
+      // next: (Event) => {
+      //   //console.log(displayList)
+      //   this.Event = Event;
+      //   this.displayEvent = [...this.Event];
 
-    }
-    this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
-      next: (Event) => {
-        //console.log(displayList)
-         this.createNewEvent();
-        this.Event;
-      },
-      error: (err) => {
-        console.error(err);
-        // this.createNewEvent();
-        this.Event;
-      }
-    })
-  }
+      // }
 
+    // })
+  }
   ngOnDestroy(){
 
   }
@@ -80,7 +73,7 @@ export class EventListComponent  {
   onClick(){
     console.log('hello')
     this.dataService.createNewEvent();
-    this.httpService.createNewEvent(this.Event)
+    // this.httpService.createNewEvent(this.Event)
   }
 
 

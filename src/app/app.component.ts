@@ -15,10 +15,11 @@ import {INewUserForm} from "./interfaces/INewUserForm";
 export class AppComponent {
 
   isLoggedIn: boolean = false;
-  isCreateNew: boolean = true;
+  isCreateNew: boolean =false;
 
   //set a new variable selectedEvent
   selectedEvent: IEventForm | null = null;
+  selectedUser: INewUserForm | null= null;
 
   accountList: ILogin[]=[
       {email:'test@test', password:'hello123'}
@@ -44,6 +45,13 @@ export class AppComponent {
     )
     //grab the value from the dataService and stores locally
 
+    this.dataService.$selectedUser.subscribe(
+      (selectedUser) => {
+        this.selectedUser = selectedUser;
+
+      }
+    )
+
   }
 
   //reaction to event
@@ -64,32 +72,31 @@ export class AppComponent {
   }
 
    //create new user
-  onUserClick(newUser: INewUserForm){
-    console.log(newUser)
+  onUserClick(newUser: INewUserForm) {
+    //console.log(newUser)
     console.log('create!')
-    //field validation
-     const result =this.newUserList.find((create) =>{
-       return create.email === newUser.email &&
-         create.Name === newUser.Name &&
-         create.password === newUser.password &&
-         create.confirmPassword === newUser.confirmPassword
-     })
-    console.log(result);
-    if (result === undefined){
-      console.log('invalid account')
-      return;
-    }
+    // field validation
+    //  const result =this.newUserList.find((create) =>{
+    //    return create.email === newUser.email &&
+    //      create.Name === newUser.Name &&
+    //      create.password === newUser.password &&
+    //      create.confirmPassword === newUser.confirmPassword
+    //  })
+    // console.log(result);
+    // if (result === undefined){
+    //   console.log('invalid account')
+    //   return;
+    // }
     this.isCreateNew = true;
-
-
+  }
   // this.httpService.findUserByEmail()
   //
   // }
-  }
+}
 
 
 
-    }
+
 
 
 

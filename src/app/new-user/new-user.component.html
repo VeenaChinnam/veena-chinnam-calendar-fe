@@ -3,9 +3,9 @@
 
 
   <div class="border border-info , col-7">
+    <form class="row g-10" class="text-center">
+      <h2>create new user</h2>
 
-    <h2>create new user</h2>
-    <form class="row g-10">
 
 
 
@@ -37,6 +37,8 @@
       </div>
 
       <div class="col-12">
+        <button type="button" class="btn btn-primary" (click)="onCreateUser()">Create New User</button>
+
         <button type="submit" class="btn btn-primary" (click)="createUser()">Submit</button>
       </div>
     </form>
@@ -59,5 +61,5 @@
 
 </div>
 
-<!--<button (click)="onClickSubmit()">Submit</button>-->
+<button (click)="onClickSubmit()">Submit</button>
 <!--<button (click)="onRegisterClick()">Register</button>-->
