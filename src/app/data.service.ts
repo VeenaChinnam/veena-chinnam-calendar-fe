@@ -39,17 +39,17 @@ export class DataService {
     ];
       $eventList = new Subject<IEventForm[]>();
 
-  userList: INewUserForm[]=[
-    {
-      id : '1',
-      Name: 'test',
-      email: 'test@test',
-      password: 'hello123',
-      confirmPassword: 'hello123',
-
-    },
-  ];
-  $userList = new Subject<INewUserForm[]>();
+  // userList: INewUserForm[]=[
+  //   {
+  //     id : '1',
+  //     Name: 'test',
+  //     email: 'test@test',
+  //     password: 'hello123',
+  //     confirmPassword: 'hello123',
+  //
+  //   },
+  // ];
+  // $userList = new Subject<INewUserForm[]>();
 
 
 
@@ -144,5 +144,6 @@ export class DataService {
     this.eventList[index] = updateEvent;
     this.$eventList.next(this.eventList);
   }
+
 
 }

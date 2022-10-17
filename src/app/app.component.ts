@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {DataService} from "./data.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {INewUserForm} from "./interfaces/INewUserForm";
+import {first} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -69,6 +70,8 @@ export class AppComponent {
       return;
     }
     this.isLoggedIn = true;
+
+
   }
 
    //create new user

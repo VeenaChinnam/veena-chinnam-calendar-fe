@@ -43,12 +43,16 @@ export class EventListComponent  {
       return event.EventTitle.includes(searchText);
     })
 
-}
+  }
   //creating new event
   onClick(){
     console.log('hello')
     this.dataService.createNewEvent();
     this.httpService.createNewEvent(this.Event)
+  }
+
+  onLogOut(){
+    console.log('logOut')
   }
 
 
