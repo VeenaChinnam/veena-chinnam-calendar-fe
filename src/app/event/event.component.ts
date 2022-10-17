@@ -49,15 +49,9 @@ export class EventComponent implements OnInit {
     this.httpService.createNewEvent(newEvent).pipe(first()).subscribe({
       next: (Event) => {
         //console.log(displayList)
-        // this.getEvents();
         this.createNewEvent();
-        // this.Events;
       }
-      // error: (err) => {
-      //   console.error(err);
-      //
-      //
-      // }
+
     })
   }
 
@@ -70,7 +64,6 @@ export class EventComponent implements OnInit {
     this.dataService.deleteEvent(this.event.id);
     // this.httpService.createNewEvent(this.Events)
     //emit the id by contact
-    // this.onDelete.emit(this.Event.id)
   }
 
   onUpdateClick(){

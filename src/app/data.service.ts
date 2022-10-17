@@ -16,7 +16,6 @@ export class DataService {
   private selectedEvent: IEventForm | null = null;
   $selectedEvent = new Subject<IEventForm | null>();
 
-  // private selectedUser: INewUserForm | null = null;
   private selectedUser: INewUserForm | null = null;
   $selectedUser = new Subject<INewUserForm | null>();
 

@@ -71,7 +71,15 @@ export class AppComponent {
     }
     this.isLoggedIn = true;
 
-
+    // this.httpService.findUserByEmail(this.email).pipe((first()).subscribe({
+    //   next: (accountList) => {
+    //     //validate password
+    //     const foundaccountList = userList.find(
+    //
+    //     )
+    //
+    //   }
+    // }))
   }
 
    //create new user
