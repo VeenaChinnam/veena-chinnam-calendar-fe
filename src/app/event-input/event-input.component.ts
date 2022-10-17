@@ -26,6 +26,7 @@ export class EventInputComponent implements OnInit {
 
   createNewEvent() {
     const newEvent = {
+      id:"",
       EventDate: "",
       EventTitle: "",
       EventDescription: "",
