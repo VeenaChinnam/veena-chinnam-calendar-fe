@@ -52,7 +52,7 @@ export class EventInputComponent implements OnInit {
   onSubmitClick() {
     console.log(this.event)
     //change the date string to object in the console log
-    this.EventDate = new Date(this.EventDate);
+    this.event.EventDate = new Date(this.EventDate);
 
     this.dataService.onEventInputSubmit(this.event);
     // this.httpService.createNewEvent(this.Event)

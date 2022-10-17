@@ -1,9 +1,8 @@
 
 <button type="button" class="btn btn-outline-primary" (click)="onClick()">Create New Event</button>
 <div class="input-group mb-3">
-
-     <input [ngModel]="searchText" >
-  >
+     <span class="input-group-text" id="basic-addon1">Search</span>
+     <input [ngModel]="searchText" (ngModelChange)="filterList($event)" >
 </div>
 <!--ngFor to render the event comp for every item in the list-->
 

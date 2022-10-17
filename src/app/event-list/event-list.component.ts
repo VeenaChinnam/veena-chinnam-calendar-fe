@@ -38,7 +38,6 @@ export class EventListComponent  {
 
   }
 
-
     filterList(searchText: any) {
       this.displayList = this.List.filter((event) =>{
       return event.EventTitle.includes(searchText);
