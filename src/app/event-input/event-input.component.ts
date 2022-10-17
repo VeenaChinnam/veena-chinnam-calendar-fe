@@ -46,7 +46,7 @@ export class EventInputComponent implements OnInit {
   }
 
   onCancelClick(){
-    console.log('cancel')
+
     this.dataService.cancelSelectedEvent();
   }
   onSubmitClick() {

@@ -62,12 +62,12 @@ export class DataService {
   setSelectedEvent(id: string){
     console.log(id)
     //this.isCreating = true;
-    const event =  this.eventList.find(event => event.id === id);
-    if(event === undefined){
+    const eventinfo =  this.eventList.find(eventinfo => eventinfo.id === id);
+    if(eventinfo === undefined){
       console.error('unable to find contact');
       return;
     }
-    this.selectedEvent = {...event};
+    this.selectedEvent = {...eventinfo};
     this.$selectedEvent.next(this.selectedEvent);
 
     //we will have values in the event form
@@ -80,7 +80,6 @@ export class DataService {
     this.$selectedEvent.next(this.selectedEvent);
 
   }
-
 
   createNewEvent(){
     // this.isCreating = true;
@@ -139,7 +138,7 @@ export class DataService {
   updateEvent(updateEvent: IEventForm){
     const index = this.eventList.findIndex(eventinfo => eventinfo.id === updateEvent.id);
     if(index === -1){
-      console.error('unable to find updateEvent in the List')
+      console.error('unable to find updateEvent in the List');
       return
     }
     this.eventList[index] = updateEvent;

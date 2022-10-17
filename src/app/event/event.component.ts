@@ -11,13 +11,12 @@ import {first} from "rxjs";
 })
 export class EventComponent implements OnInit {
 
-  // Events !:IEventForm;
   Events : null = null;
   EventDate: Date = new Date();
   EventTitle: string="";
   EventDescription:string ="";
 
-  @Input() Event!:IEventForm;
+  @Input() event!:IEventForm;
   //pass the data into the comp
 
 
@@ -64,20 +63,20 @@ export class EventComponent implements OnInit {
 
   ngOnInit(): void {
     //to verify the data is there or not
-    console.log(this.Event)
+    console.log(this.event)
     //this.httpService.createNewEvent(this.Events)
   }
   onDeleteClick() {
-    this.dataService.deleteEvent(this.Event.id);
+    this.dataService.deleteEvent(this.event.id);
     // this.httpService.createNewEvent(this.Events)
     //emit the id by contact
     // this.onDelete.emit(this.Event.id)
   }
 
   onUpdateClick(){
-    this.dataService.setSelectedEvent(this.Event.id);
+    this.dataService.setSelectedEvent(this.event.id);
     // this.httpService.createNewEvent(this.Events);
-    // this.createNewEvent();
+
   }
 
 }
