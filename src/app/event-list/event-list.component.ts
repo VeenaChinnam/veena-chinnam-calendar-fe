@@ -13,22 +13,18 @@ import {EventListService} from "../event-list.service";
 export class EventListComponent  {
 
   Event: any;
-  // displayEvent!: IEventForm[];
 
   //instead of data coming from the parent  through an i/p, data come to the service in the constructor
   List: IEventForm[];
   displayList!: IEventForm[];
   searchText: string = "";
 
-    // onDestroy = new Subject();
 
   constructor(private dataService: DataService, private httpService:HttpService) {
 
     this.List = this.dataService.eventList;
     this.displayList = [...this.List];
 
-    // this.Event = this.dataService.createNewEvent;
-    // this.displayEvent = [...this.Event];
 
     this.dataService.$eventList.subscribe((newList) => {
       console.log(newList)
@@ -36,32 +32,12 @@ export class EventListComponent  {
       this.displayList = [...this.List];
 
     })
-    // this.httpService.createNewEvent.pipe(first()).subscribe({
-    //   next: (newEvent) => {
-    //     //console.log(displayList)
-    //     this.Event = newEvent;
-    //     this.displayEvent;
-    //
-      // next: (Event) => {
-      //   //console.log(displayList)
-      //   this.Event = Event;
-      //   this.displayEvent = [...this.Event];
-
-      // }
-
-    // })
   }
   ngOnDestroy(){
+    this.displayList = [...this.List];
 
   }
 
-  // ngOnInit(): void {
-  //   console.log(this.List)
-  //   this.displayEvent = [...this.List];
-  // }
-  // ngOnChanges(changes: SimpleChanges) {
-  //   this.displayEvent =[...this.List];
-  //  }
 
     filterList(searchText: any) {
       this.displayList = this.List.filter((event) =>{

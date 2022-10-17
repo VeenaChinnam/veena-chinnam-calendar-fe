@@ -17,8 +17,8 @@ export class DataService {
   $selectedEvent = new Subject<IEventForm | null>();
 
   // private selectedUser: INewUserForm | null = null;
-  // private selectedUser: INewUserForm | null = null;
-  // $selectedUser = new Subject<INewUserForm | null>();
+  private selectedUser: INewUserForm | null = null;
+  $selectedUser = new Subject<INewUserForm | null>();
 
 
   eventList: IEventForm[] = [
@@ -39,35 +39,23 @@ export class DataService {
     ];
       $eventList = new Subject<IEventForm[]>();
 
-      // userList: INewUserForm[]=[
-      //   {
-      //     id : '1',
-      //     Name: 'test',
-      //     email: 'test@test',
-      //     password: 'hello123',
-      //     confirmPassword: 'hello123',
-      //
-      //   },
-      // ];
-      // $userList = new Subject<INewUserForm[]>();
+  userList: INewUserForm[]=[
+    {
+      id : '1',
+      Name: 'test',
+      email: 'test@test',
+      password: 'hello123',
+      confirmPassword: 'hello123',
+
+    },
+  ];
+  $userList = new Subject<INewUserForm[]>();
+
+
 
   constructor(private httpService: HttpService) {
-    // this.createNewEvent();
-    // this.httpService.getEventList().pipe(first()).subscribe({
-    //   next: eventList => {
-    //     this.$eventList.next (this.eventList)
-    //   }
-    // })
+
   }
-  // NewEventList: IEventForm[]=[
-  //   {
-  //     id: "",
-  //     EventDate: new Date(),
-  //     EventTitle: "",
-  //     EventDescription: "",
-  //   }
-  // ];
-  // $NewEventList =new Subject<IEventForm[]>();
 
   //to run update func
   //logic for setting the selectedEvent to an existingEvent
@@ -107,17 +95,17 @@ export class DataService {
     this.$selectedEvent.next(this.selectedEvent);
 
   }
-  // createNewUser(){
-  //   console.log('newuser')
-  //   this.selectedUser ={
-  //     id:"",
-  //     Name:"",
-  //     email:"",
-  //     password:"",
-  //     confirmPassword:"",
-  //   }
-  //   this.$selectedUser.next(this.selectedUser);
-  // }
+  createNewUser(){
+    console.log('newuser')
+    this.selectedUser ={
+      id:"",
+      Name:"",
+      email:"",
+      password:"",
+      confirmPassword:"",
+    }
+    this.$selectedUser.next(this.selectedUser);
+  }
 
   deleteEvent(id: string){
     console.log(id);

@@ -2,30 +2,17 @@
   <app-login
     *ngIf="isLoggedIn  === false"
     (onLogin)="onLogin($event)"
+    (onCreate)="onUserClick($event)"
   ></app-login>
 
   <app-new-user
-    *ngIf=" isCreateNew === false"
-
+    *ngIf=" isCreateNew === true"
   ></app-new-user>
-
 
 </div>
 
 
-
-<!--(onCreate)="onUserClick($event)"-->
-<!--<app-login-->
-<!--  *ngIf=" isCreateNew === false"-->
-<!--&gt;</app-login>-->
-
-
 <div *ngIf="isLoggedIn === true ">
-
-<!--  <app-new-user-->
-<!--    *ngIf=" isCreateNew === true"-->
-<!--  ></app-new-user>-->
-
 
   <app-event-list
       *ngIf = "selectedEvent === null "
@@ -36,27 +23,19 @@
       *ngIf= " selectedEvent  !== null"
       [event]="selectedEvent"
    ></app-event-input>
-
-<!--  <app-new-user-->
-<!--    (onSubmit)="onSubmiClick($event)"-->
-<!--  ></app-new-user>-->
 </div>
 
-<!--<div *ngIf=" isCreateNew === true">-->
 
-<!--  <app-login-->
-<!--    *ngIf="selectedUser === null"-->
-<!--  ></app-login>-->
 
-<!--&lt;!&ndash;  <app-new-user&ndash;&gt;-->
-<!--&lt;!&ndash;    *ngIf="selectedUser !== null"&ndash;&gt;-->
-<!--&lt;!&ndash;    [user] = "selectedUser"&ndash;&gt;-->
+<div *ngIf=" isCreateNew === true">
 
-<!--&lt;!&ndash;  ></app-new-user>&ndash;&gt;-->
-<!--</div>-->
-<!--<app-user-input>-->
+  <app-new-user
+    *ngIf="selectedUser !== null"
+    [user] = "selectedUser"
 
-<!--</app-user-input>-->
+  ></app-new-user>
+</div>
+
 
 
 

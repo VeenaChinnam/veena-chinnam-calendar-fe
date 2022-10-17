@@ -77,22 +77,7 @@ export class NewUserComponent implements OnInit {
 
   })
   }
-  // onCreateUser(){
-  //   console.log('clicked')
-  //   this.onCreate.emit();
-  //
-  // }
-
-  // onClickSubmit( ){
-  //   console.log('submit');
-  // // this.user
-  //   this.onSubmit.emit();
-  //
-  // }
 }
 
 
-  // onRegisterClick(){
-  //
-  // }
 

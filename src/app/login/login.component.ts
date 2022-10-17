@@ -13,20 +13,18 @@ export class LoginComponent implements OnInit {
 
 
   @Output() onLogin = new EventEmitter<ILogin>();
-  // @Output() onCreate = new EventEmitter<INewUserForm>();
+  @Output() onCreate = new EventEmitter<INewUserForm>();
   // @Input() user!: INewUserForm;
 
-
-  // userNewList :INewUserForm[];
-  // displayUserForm! : INewUserForm[];
-
   constructor(private httpService : HttpService,private dataService:DataService) {
-    // this.userNewList= this.displayUserForm.userList;
-    // this.displayUserForm = [...this.userNewList];
-  }
 
+  }
+  id!:string;
+  Name!: string;
   email!: string;
   password!: string;
+ confirmPassword!: string;
+
 
   ngOnInit(): void {
   }
@@ -41,8 +39,16 @@ export class LoginComponent implements OnInit {
 
   onCreateUser(){
     console.log('clicked')
-    // this.onCreate.emit();
-   // this.dataService.createNewUser();
+
+    this.onCreate.emit({
+      id:this.id,
+      Name:this.Name,
+      email:this.email,
+      password:this.password,
+      confirmPassword:this.confirmPassword
+      });
+
+   this.dataService.createNewUser();
   }
 
 }

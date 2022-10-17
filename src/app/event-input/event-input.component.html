@@ -1,32 +1,28 @@
-<!--<div>-->
-<!--  <label>-->
-<!--    email:<input [(ngModel)]="event.email">-->
-<!--  </label>-->
-<!--</div>-->
+
 <div>
   <div>
-    <label>
+    <label class="input-group mb-3">
       EventDate:<input [(ngModel)]="EventDate" type="date">
 
     </label>
   </div>
 
   <div>
-    <label>
+    <label class="input-group mb-3">
       EventTitle:<input [(ngModel)]="EventTitle">
 
     </label>
   </div>
 
   <div>
-    <label>
+    <label class="input-group mb-3">
       EventDescription:<input [(ngModel)]="EventDescription">
 
     </label>
   </div>
 
-  <button (click)="onCancelClick()"> Cancel </button>
-  <button (click)="onSubmitClick()">Submit</button>
+  <button (click)="onCancelClick()" class="btn btn-danger"> Cancel </button>
+  <button (click)="onSubmitClick()" class="btn btn-success">Submit</button>
 
 </div>
 

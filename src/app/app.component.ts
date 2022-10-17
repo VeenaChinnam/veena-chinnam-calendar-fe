@@ -45,12 +45,12 @@ export class AppComponent {
     )
     //grab the value from the dataService and stores locally
 
-    // this.dataService.$selectedUser.subscribe(
-    //   (selectedUser) => {
-    //     this.selectedUser = selectedUser;
-    //
-    //   }
-    // )
+    this.dataService.$selectedUser.subscribe(
+      (selectedUser) => {
+        this.selectedUser = selectedUser;
+
+      }
+    )
 
   }
 
@@ -75,18 +75,18 @@ export class AppComponent {
   onUserClick(newUser: INewUserForm) {
     //console.log(newUser)
     console.log('create!')
-    // field validation
-    //  const result =this.newUserList.find((create) =>{
-    //    return create.email === newUser.email &&
-    //      create.Name === newUser.Name &&
-    //      create.password === newUser.password &&
-    //      create.confirmPassword === newUser.confirmPassword
-    //  })
-    // console.log(result);
-    // if (result === undefined){
-    //   console.log('invalid account')
-    //   return;
-    // }
+    //field validation
+     const result =this.newUserList.find((create) =>{
+       return create.email === newUser.email &&
+         create.Name === newUser.Name &&
+         create.password === newUser.password &&
+         create.confirmPassword === newUser.confirmPassword
+     })
+    console.log(result);
+    if (result === undefined){
+      console.log('already account exists')
+      return;
+    }
     this.isCreateNew = true;
   }
   // this.httpService.findUserByEmail()

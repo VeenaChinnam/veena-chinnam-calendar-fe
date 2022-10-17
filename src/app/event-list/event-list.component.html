@@ -1,18 +1,20 @@
 
 <button type="button" class="btn btn-outline-primary" (click)="onClick()">Create New Event</button>
-<input>
+<div class="input-group mb-3">
+
+     <input [ngModel]="searchText" >
+  >
+</div>
 <!--ngFor to render the event comp for every item in the list-->
-<div class="event-list" >
+
 
   <div class="event-list">
      <!--    rendering the event-->
     <app-event
-      *ngFor="let eventData of List"
+      *ngFor="let eventData of displayList"
       [Event]="eventData"
     ></app-event>
     <!--    set up event comp-->
      <!--    eventData (this data passing to the)Event (event bucket)-->
   </div>
 
-
-</div>
