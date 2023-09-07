@@ -44,7 +44,6 @@ export class NewUserComponent implements OnInit {
       }
     })
   }
-
   createUser() {
     const newUser = {
       id: new Date(),
@@ -56,7 +55,7 @@ export class NewUserComponent implements OnInit {
     this.httpService.createUser(newUser).pipe(first()).subscribe({
       next: (data) => {
         console.log(data);
-        // this.getUsers();
+        this.getUsers();
       },
       error: (err) => {
         console.error(err);

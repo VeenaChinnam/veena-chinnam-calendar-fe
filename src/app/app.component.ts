@@ -46,12 +46,12 @@ export class AppComponent {
     )
     //grab the value from the dataService and stores locally
 
-    this.dataService.$selectedUser.subscribe(
-      (selectedUser) => {
-        this.selectedUser = selectedUser;
-
-      }
-    )
+    // this.dataService.$selectedUser.subscribe(
+    //   (selectedUser) => {
+    //     this.selectedUser = selectedUser;
+    //
+    //   }
+    // )
 
   }
 
@@ -77,7 +77,6 @@ export class AppComponent {
     //     const foundaccountList = userList.find(
     //
     //     )
-    //
     //   }
     // }))
   }

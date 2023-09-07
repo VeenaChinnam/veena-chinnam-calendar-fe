@@ -5,3 +5,4 @@ export interface INewUserForm{
   password:string;
   confirmPassword:string;
 }
+

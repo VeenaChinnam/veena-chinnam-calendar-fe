@@ -21,3 +21,4 @@ describe('EventInputComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

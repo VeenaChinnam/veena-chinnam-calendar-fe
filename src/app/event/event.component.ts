@@ -54,7 +54,6 @@ export class EventComponent implements OnInit {
 
     })
   }
-
   ngOnInit(): void {
     //to verify the data is there or not
     console.log(this.event)

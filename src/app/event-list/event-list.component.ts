@@ -55,6 +55,4 @@ export class EventListComponent  {
     console.log('logOut')
   }
 
-
-
 }

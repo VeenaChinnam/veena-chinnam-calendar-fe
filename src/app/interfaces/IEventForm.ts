@@ -4,3 +4,4 @@ export interface IEventForm{
   EventTitle: string
   EventDescription: string
 }
+
